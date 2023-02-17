@@ -1,0 +1,25 @@
+﻿@model MagazineProject.Models.News
+
+<h1>Details</h1>
+
+<div class="article-card mt-1">
+
+    <div class="container-card p-2">
+        <div class="article-header d-flex justify-content-between">
+            <div class="title fw-bold fs-2">@Html.DisplayFor(model => model.Title)</div>
+            
+        </div>
+
+        <div class="description">
+            <p class="description">@Html.DisplayFor(model => model.Description)</p>
+        </div>
+        <div class="genre">
+            <p class="text-genre">@Html.DisplayFor(model => model.Date)</p>
+        </div>
+        <div class="image">
+            <img class="img-fluid" src="@Url.Content("~/images/" + Model.Image)" />
+        </div>
+    </div>
+
+</div>
+

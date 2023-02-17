@@ -1,0 +1,138 @@
+html {
+    font-size: 14px;
+    font-family: 'Inter', sans-serif;
+}
+
+h2 {
+    color:hsl(240, 100%, 5%) ;
+    font-weight: 900;
+    font-size: 2rem;
+}
+
+.main-link {
+    font-weight: 900;
+    font-size: 2rem;
+    color: black
+}
+
+.article-details {
+    padding-left: 10px;
+}
+
+.navigation-links {
+    color: hsl(236, 13%, 42%);
+}
+
+.read-more-btn {
+    background-color: hsl(5, 85%, 63%);
+    color: hsl(36, 100%, 99%);
+    border: none;
+    outline: none;
+    padding: 8px 15px;
+}
+
+.advertisement {
+    background-color: hsl(35, 77%, 62%);
+    display: grid;
+    grid-template-columns: 50% 50%;
+}
+
+.advertisement-detail {
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+}
+
+.articles{
+    
+    
+}
+
+.another-section {
+   
+    background-color: hsl(240, 100%, 5%);
+}
+
+.latest-news {
+    margin-left: 15px;
+}
+
+.new-header {
+    color: hsl(35, 77%, 62%);
+    font-size: 25px;
+    margin-top: 1rem;
+    font-weight: 700;
+}
+
+.new-news b {
+    font-size: 1.2rem;
+    color: hsl(36, 100%, 99%);
+}
+
+.new-news p {
+    color: hsl(233, 8%, 79%);
+    margin-top: 8px;
+    margin-right: 8px;
+    font-size: 14px;
+}
+
+hr {
+    height: 2px;
+    background-color: hsl(36, 100%, 99%);
+    margin-right: 1rem;
+}
+
+.title-row {
+    height: 2px;
+    background-color: black;
+    
+}
+
+.for-margin {
+    margin-right: 30px;
+}
+
+    .for-margin:last-child {
+        margin-right: 0;
+    }
+
+.numbers {
+    color: hsl(233, 8%, 79%);
+    font-size: 1.5rem;
+    font-weight: 500;
+}
+
+.article-details h3, p {
+    font-size: 15px
+}
+
+
+
+@media (min-width: 768px) {
+    html {
+        font-size: 16px;
+    }
+}
+
+html {
+    position: relative;
+    min-height: 100%;
+}
+
+body {
+    margin-bottom: 60px;
+}
+
+/*article*/
+.article-card {
+    background-color: hsl(236, 13%, 42%);
+}
+
+.description {
+   color: hsl(233, 8%, 79%);
+}
+
+.text-genre {
+    color: hsl(35, 77%, 62%);
+}

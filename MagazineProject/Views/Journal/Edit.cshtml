@@ -1,0 +1,50 @@
+﻿@model MagazineProject.Models.ViewModels.JournalViewModel
+
+@{
+    ViewData["Title"] = "Edit";
+}
+
+<h1 class="text-center">Edit</h1>
+
+<h4>Journal</h4>
+<hr />
+<div class="article-card mt-1">
+    <div class="container-card p-2">
+        <form enctype="multipart/form-data" asp-action="Edit">
+            <div asp-validation-summary="ModelOnly" class="text-danger"></div>
+            
+
+            <div class="article-header d-flex justify-content-between mt-2">
+                <input placeholder="Enter title" class="title fw-bold fs-2 w-100" asp-for="Title" />
+                <span asp-validation-for="Title" class="text-danger"></span>
+            </div>
+
+            <div class="description mt-4">
+                <input class="description w-100" placeholder="Enter description" asp-for="Description" />
+                <span asp-validation-for="Description" class="text-danger"></span>
+            </div>
+            <div class="genre mt-4">
+                <input class="text-genre w-100" placeholder="Enter author name" asp-for="Author" />
+                <span asp-validation-for="Author" class="text-danger"></span>
+            </div>
+            <div class="form-group d-flex gap-3 mt-2">
+                <input asp-for="JournalImage" type="file" class="custom-file-input" id="customFile">
+                <label class="custom-file-label" for="customFile">Choose file</label>
+                @*<label asp-for="JournalImage" class="control-label w-25"></label>
+                <input asp-for="JournalImage" class="form-control w-75" />
+                <span asp-validation-for="JournalImage" class="text-danger"></span>*@
+            </div>
+            <input type="submit" value="Save" class="btn btn-primary mt-2" />
+        </form>
+    </div>
+</div>
+<div>
+    <a asp-action="Index" class="btn btn-outline-danger mt-2">Back to List</a>
+</div>
+
+
+@section Scripts {
+    @{
+        await Html.RenderPartialAsync("_ValidationScriptsPartial");
+    }
+}

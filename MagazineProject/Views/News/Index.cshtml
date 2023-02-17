@@ -1,0 +1,55 @@
+﻿@model IEnumerable<MagazineProject.Models.News>
+
+@{
+    ViewData["Title"] = "News Page";
+}
+
+<h4 class="text-center text-uppercase">List of news</h4>
+<div class="d-flex justify-content-between">
+
+    <p>
+        <a asp-action="Create" class="btn btn-primary "><i class="fas fa-plus-circle"></i> Add New</a>
+    </p>
+    <p>
+        <a asp-controller="Admin" asp-action="Index" class="btn btn-outline-warning">Back to admin</a>
+    </p>
+
+</div>
+
+@if (Model.Count() > 0)
+{
+    @foreach (var item in Model)
+    {
+        <div class="article-card mt-1">
+
+            <div class="container-card p-2">
+                <div class="article-header d-flex justify-content-between">
+                    <div class="title fw-bold fs-2">@Html.DisplayFor(modelItem => item.Title)</div>
+                    <div class="buttons">
+                        <a class="btn btn-warning" asp-action="Edit" asp-route-id="@item.Id">Edit</a>
+                        <a class="btn btn-danger" asp-action="Delete" asp-route-id="@item.Id">Delete</a>
+                        <a class="btn btn-secondary" asp-action="Details" asp-route-id="@item.Id">Details</a>
+                    </div>
+                </div>
+
+                <div class="description">
+                    <p class="description">@Html.DisplayFor(modelItem => item.Description)</p>
+                </div>
+                <div class="genre">
+                    <p class="text-genre">
+                        <img src="~/images/@item.Image"
+                     height="100" width="100"
+                     asp-append-version="true" />
+                    </p>
+                </div>
+            </div>
+
+        </div>
+    }
+}
+else
+{
+    <p>No entries found</p>
+}
+
+

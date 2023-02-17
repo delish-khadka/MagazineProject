@@ -1,0 +1,53 @@
+﻿@model MagazineProject.Models.ViewModels.JournalViewModel
+
+@{
+    ViewData["Title"] = "Create";
+}
+
+<h1 class="text-center">Article</h1>
+
+<h4>Create new article</h4>
+<hr />
+<div class="row">
+    <div class="col-12">
+        <form enctype="multipart/form-data" asp-action="Create">
+            <div asp-validation-summary="ModelOnly" class="text-danger"></div>
+            <div class="form-group  d-flex gap-3">
+                <label asp-for="Title" class="control-label w-25"></label>
+                <input asp-for="Title" class="form-control w-75" />
+                <span asp-validation-for="Title" class="text-danger"></span>
+            </div>
+            <div class="form-group d-flex gap-3 mt-2">
+                <label asp-for="Description" class="control-label w-25"></label>
+                <textarea asp-for="Description" class="form-control w-75"></textarea>
+                <span asp-validation-for="Description" class="text-danger"></span>
+            </div>
+            <div class="form-group d-flex gap-3 mt-2">
+                <label asp-for="Author" class="control-label w-25"></label>
+                <input asp-for="Author" class="form-control w-75" />
+                <span asp-validation-for="Author" class="text-danger"></span>
+            </div>
+            <div class="form-group d-flex gap-3 mt-2">
+                <input asp-for="JournalImage" type="file" class="custom-file-input" id="customFile">
+                <label class="custom-file-label" for="customFile">Choose file</label>
+                @*<label asp-for="JournalImage" class="control-label w-25"></label>
+                <input asp-for="JournalImage" class="form-control w-75" />
+                <span asp-validation-for="JournalImage" class="text-danger"></span>*@
+            </div>
+            <div class="form-group">
+                <input type="submit" value="Create" class="btn btn-primary " />
+            </div>
+        </form>
+    </div>
+
+</div>
+
+<div>
+    <a asp-action="Index" class="btn btn-outline-danger w-25 ">Back to List</a>
+</div>
+
+@section Scripts {
+    @{
+        await Html.RenderPartialAsync("_ValidationScriptsPartial");
+    }
+}

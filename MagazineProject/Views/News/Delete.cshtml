@@ -1,0 +1,23 @@
+﻿@model MagazineProject.Models.News
+
+<table class="table table-bordered">
+    <tr>
+        <th>Image</th>
+        <th>Title</th>
+        <th>Description</th>
+        <th>Date</th>
+    </tr>
+    <tr>
+        <td hidden>@Html.DisplayFor(model=>model.Id)</td>
+        <td>@Html.DisplayFor(model=>model.Image)</td>
+        <td>@Html.DisplayFor(model=>model.Title)</td>
+        <td>@Html.DisplayFor(model=>model.Description)</td>
+        <td>@Html.DisplayFor(model=>model.Date)</td>
+    </tr>
+</table>
+
+<form asp-action="Delete">
+    <input type="hidden" asp-for="Id" />
+    <input type="submit" value="Delete" class="btn btn-danger" />
+    <a asp-action="Index">Back to home</a>
+</form>

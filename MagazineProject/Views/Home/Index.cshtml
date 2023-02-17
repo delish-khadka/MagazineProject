@@ -1,0 +1,113 @@
+﻿@model MagazineProject.Models.ViewModels.MainPageViewModel
+@{
+    ViewData["Title"] = "Home Page";
+}
+<h1 class="text-center mt-2 mb-4 ">Silicon Soft Weekly Magazine</h1>
+<hr />
+@*<nav class="navbar navbar-expand-lg ">
+    <div class="container-fluid ">
+        <a class="navbar-brand main-link" href="#">W.</a>
+        @*<button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarNav" aria-controls="navbarNav" aria-expanded="false" aria-label="Toggle navigation">
+            <span class="navbar-toggler-icon"></span>
+        </button>
+        <div class="collapse navbar-collapse justify-content-end" id="navbarNav">
+            <ul class="navbar-nav">
+                <li class="nav-item for-margin">
+                    <a class="nav-link navigation-links" aria-current="page" href="#">Home</a>
+                </li>
+                <li class="nav-item for-margin">
+                    <a class="nav-link navigation-links" href="#">New</a>
+                </li>
+                <li class="nav-item for-margin">
+                    <a class="nav-link navigation-links" href="#">Popular</a>
+                </li>
+                <li class="nav-item for-margin">
+                    <a class="nav-link navigation-links" href="#">Trending</a>
+                </li>
+                <li class="nav-item for-margin">
+                    <a class="nav-link navigation-links" href="#">Categories</a>
+                </li>
+            </ul>
+        </div>
+    </div>
+</nav>*@
+
+
+<div class="">
+    <section>
+        <h2>News of the week</h2>
+        
+        @foreach(var news in Model.allNews)
+        {
+            <div class="news-section">
+                <img src="@Url.Content("~/images/" + news.Image)" class="w-100 h-50" />
+                <div class="">
+                    <b class="flex-grow-1 fs-4">@news.Title</b>
+                    <div class="">
+                        <p>@news.Description</p>
+                        <p class="text-secondary"> Date - @news.Date</p>
+                    </div>
+                </div>
+            </div>
+        }
+        
+    </section>
+
+    <section class="another-section">
+        <div class="latest-news">
+            <h2 class="new-header pt-2">New Articles</h2>
+            <hr class="article-hr" />
+            @*@foreach(var item in Model)
+            {
+                <div class="new-news">
+                    <b>@Html.DisplayFor(title => item.Title)</b>
+                    <p>@Html.DisplayFor(description => item.Description)</p>
+                </div>
+            }*@
+            @foreach(var articles in Model.allArticles)
+            {
+                <div class="new-news">
+                    <b>@articles.Title</b>
+                    <p>@articles.Description</p>
+                    <p>@articles.Genre</p>
+                    
+                </div>
+                <hr class="article-hr" />
+            }
+        </div>
+
+    </section>
+</div>
+
+
+<section class="row">
+    <h2>Journals</h2>
+    @foreach(var journal in Model.allJournals)
+    {
+    <div class="articles  col-lg-4 col-sm-12 d-flex align-items-center">
+            <img src="@Url.Content("~/images/" + journal.Image)" class="h-50 w-25" />
+            <div class="article-details">
+                @*<p class="numbers">01</p>*@
+                <h3>@journal.Title</h3>
+                <p>@journal.Description</p>
+            </div>
+        </div>
+    }
+    
+</section>
+
+<section>
+    <h2 class="mb-4">Advertisement</h2>
+    
+    @foreach(var advertisement in Model.allAdvertisement)
+    {
+        <div class="advertisement mb-3">
+            <img class="img-fluid" src="@Url.Content("~/images/" + advertisement.Image)" />
+            <div class="advertisement-detail">
+                <h4>@advertisement.Title</h4>
+                <p>@advertisement.Description</p>
+            </div>
+        </div>
+    }
+    
+</section>
