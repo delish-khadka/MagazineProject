@@ -11,5 +11,7 @@ namespace MagazineProject.Models.ViewModels
         public string Description { get; set; }
 
         public IFormFile? AdvertisementImage { get; set; }
+        [Required(ErrorMessage = "Enter the date posted on the advertisement")]
+        public DateTime AdvertisementPostedDate { get; set; }
     }
 }

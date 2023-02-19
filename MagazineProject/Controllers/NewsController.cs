@@ -92,8 +92,7 @@ namespace MagazineProject.Controllers
                     Title = model.Title,
                     Description = model.Description,
                     Image = uniqueFileName,
-                    Date = model.Date
-                    
+                    Date = DateTime.Now
                 };
                 _context.Add(news);
                 await _context.SaveChangesAsync();

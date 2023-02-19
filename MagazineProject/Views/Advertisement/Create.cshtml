@@ -29,7 +29,13 @@
                 </div>
 
                 <div class="row">
-                    
+                    <div class="col-md-6">
+                        <div class="form-group">
+                            <label asp-for="AdvertisementPostedDate" class="control-label"></label>
+                            <input asp-for="AdvertisementPostedDate" class="form-control" />
+                            <span asp-validation-for="AdvertisementPostedDate" class="text-danger"></span>
+                        </div>
+                    </div>
                     <div class="col-md-6">
                         <div class="form-group">
                             <label asp-for="AdvertisementImage" class="control-label"></label>

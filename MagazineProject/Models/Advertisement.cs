@@ -15,6 +15,8 @@ namespace MagazineProject.Models
         public string Description { get; set; }
 
         public string? Image { get; set; }
+        [Required(ErrorMessage = "Enter the date posted on the advertisement")]
+        public DateTime AdvertisementPostedDate { get; set; }
 
     }
 }

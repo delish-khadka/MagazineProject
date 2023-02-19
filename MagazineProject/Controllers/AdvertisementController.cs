@@ -42,6 +42,7 @@ namespace MagazineProject.Controllers
                     Title = model.Title,
                     Description = model.Description,
                     Image = uniqueFileName,
+                    AdvertisementPostedDate = model.AdvertisementPostedDate
                 };
                 _context.Add(advertisement);
                 await _context.SaveChangesAsync();
@@ -68,7 +69,8 @@ namespace MagazineProject.Controllers
             {
                 Title = advertisement.Title,
                 Description = advertisement.Description,
-                AdvertisementImage = null
+                AdvertisementImage = null,
+                AdvertisementPostedDate = advertisement.AdvertisementPostedDate
             };
             return View(AVM);
             /*var advertisement = await _context.Advertisement.FirstOrDefaultAsync(x => x.ID == id);
@@ -97,6 +99,7 @@ namespace MagazineProject.Controllers
                 advertisement.Title = model.Title;
                 advertisement.Description = model.Description;
                 advertisement.Image = uniqueFileName;
+                advertisement.AdvertisementPostedDate = model.AdvertisementPostedDate;
 
                 await _context.SaveChangesAsync();
                 return RedirectToAction(nameof(Index));

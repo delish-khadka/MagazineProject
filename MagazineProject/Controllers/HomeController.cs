@@ -2,6 +2,8 @@
 using MagazineProject.Models;
 using MagazineProject.Models.ViewModels;
 using Microsoft.AspNetCore.Mvc;
+using Microsoft.EntityFrameworkCore;
+using NuGet.Configuration;
 using System.Diagnostics;
 
 namespace MagazineProject.Controllers
@@ -19,15 +21,85 @@ namespace MagazineProject.Controllers
 
         public IActionResult Index()
         {
-            var viewModel = new MainPageViewModel
+            var currentTime = DateTime.Now;
+            var endTime = currentTime.AddHours(-24);
+
+            var advertisementVM = new MainPageViewModel
             {
-                allAdvertisement = _context.Advertisement.ToList(),
-                allNews = _context.News.Take(2).ToList(),
+                allAdvertisement = _context.Advertisement.Where(a => a.AdvertisementPostedDate >= endTime && a.AdvertisementPostedDate <= currentTime).ToList(),
+                allNews = _context.News.Take(2).OrderByDescending(c => c.Date).ToList(),
                 allArticles = _context.Article.ToList(),
-                allJournals = _context.Journal.ToList(),
+                allJournals = _context.Journal.Take(3).ToList()
             };
-            return View(viewModel);
+
+            return View(advertisementVM);
+            /*var currentTime = DateTime.Now;
+            var endTime = currentTime.AddHours(24); // Subtract 24 hours from the current time
+
+            var advertisementVM = new MainPageViewModel
+            {
+                allAdvertisement = _context.Advertisement.Where(a => a.AdvertisementPostedDate >= endTime).ToList(),
+                allNews = _context.News.Take(2).OrderByDescending(c => c.Date).ToList(),
+                allArticles = _context.Article.ToList(),
+                allJournals = _context.Journal.Take(3).ToList()
+            };
+
+            return View(advertisementVM);*/
+            /*var settings = _context.Advertisement.All(x=> x.AdvertisementPostedDate <);
+            var currentDate = settings.AdvertisementPostedDate;
+            var endTime = currentDate.AddHours(24);*/
+            /*if(currentDate < endTime)
+            {
+                var advertisementVM = new MainPageViewModel
+                {
+                    allAdvertisement = _context.Advertisement.ToList(),
+                    allNews = _context.News.Take(2).OrderByDescending(c => c.Date).ToList(),
+                    allArticles = _context.Article.ToList(),
+                    allJournals = _context.Journal.Take(3).ToList()
+                };
+                return View(advertisementVM);
+            }
+            else
+            {
+                var noAdvertisement = new MainPageViewModel
+                {
+                    
+                    allNews = _context.News.Take(2).OrderByDescending(c => c.Date).ToList(),
+                    allArticles = _context.Article.ToList(),
+                    allJournals = _context.Journal.Take(3).ToList()
+                };
+                return View(noAdvertisement);
+            }*/
+
+
+            /*var settings = _context.Advertisement.FirstOrDefault();
+            var currentDate = settings.AdvertisementPostedDate;
+            var endTime = currentDate.AddHours(24);
+            if(currentDate < endTime)
+            {
+                
+            }
+            return View*/
         }
+
+        /*public DateTime AdvertisementVisibility()
+        {
+            var settings = _context.Advertisement.FirstOrDefault();
+            var currentDate = _context.Advertisement.Date;
+
+            // get the current time
+            var currentTime = DateTime.Now;
+
+            // calculate the end time as 24 hours from the current time
+            var endTime = currentDate.AddHours(24);
+
+            // check if the current time is before the end time
+            if (currentTime < endTime)
+            {
+                // display the content here
+                Console.WriteLine("Content to be displayed for 24 hours.");
+            }
+        }*/
 
 
         [ResponseCache(Duration = 0, Location = ResponseCacheLocation.None, NoStore = true)]

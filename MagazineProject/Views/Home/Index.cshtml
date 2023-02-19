@@ -40,7 +40,7 @@
         @foreach(var news in Model.allNews)
         {
             <div class="news-section">
-                <img src="@Url.Content("~/images/" + news.Image)" class="w-100 h-50" />
+                <img src="@Url.Content("~/images/" + news.Image)" class="w-100 mh-100" />
                 <div class="">
                     <b class="flex-grow-1 fs-4">@news.Title</b>
                     <div class="">
@@ -85,8 +85,8 @@
     @foreach(var journal in Model.allJournals)
     {
     <div class="articles  col-lg-4 col-sm-12 d-flex align-items-center">
-            <img src="@Url.Content("~/images/" + journal.Image)" class="h-50 w-25" />
-            <div class="article-details">
+        <img src="@Url.Content("~/images/" + journal.Image)" class="h-50 w-25" />
+        <div class="article-details">
                 @*<p class="numbers">01</p>*@
                 <h3>@journal.Title</h3>
                 <p>@journal.Description</p>

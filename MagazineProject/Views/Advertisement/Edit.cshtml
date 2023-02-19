@@ -24,6 +24,11 @@
                         <input class="description w-100" placeholder="Enter description" asp-for="Description" />
                         <span asp-validation-for="Description" class="text-danger"></span>
                     </div>
+                    <div class="description mt-4">
+                        <label asp-for="AdvertisementPostedDate" class="control-label"></label>
+                        <input asp-for="AdvertisementPostedDate" class="form-control" />
+                        <span asp-validation-for="AdvertisementPostedDate" class="text-danger"></span>
+                    </div>
                     <div class="genre mt-4">
                         <input asp-for="AdvertisementImage" type="file" class="custom-file-input" id="customFile">
                         <label class="custom-file-label" for="customFile">Choose file</label>
