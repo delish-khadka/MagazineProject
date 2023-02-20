@@ -27,8 +27,8 @@ namespace MagazineProject.Controllers
             var advertisementVM = new MainPageViewModel
             {
                 allAdvertisement = _context.Advertisement.Where(a => a.AdvertisementPostedDate >= endTime && a.AdvertisementPostedDate <= currentTime).ToList(),
-                allNews = _context.News.Take(2).OrderByDescending(c => c.Date).ToList(),
-                allArticles = _context.Article.ToList(),
+                allNews = _context.News.Take(1).OrderByDescending(c => c.Date).ToList(),
+                allArticles = _context.Article.Take(6).ToList(),
                 allJournals = _context.Journal.Take(3).ToList()
             };
 
@@ -82,25 +82,11 @@ namespace MagazineProject.Controllers
             return View*/
         }
 
-        /*public DateTime AdvertisementVisibility()
+        public IActionResult Article(int id)
         {
-            var settings = _context.Advertisement.FirstOrDefault();
-            var currentDate = _context.Advertisement.Date;
-
-            // get the current time
-            var currentTime = DateTime.Now;
-
-            // calculate the end time as 24 hours from the current time
-            var endTime = currentDate.AddHours(24);
-
-            // check if the current time is before the end time
-            if (currentTime < endTime)
-            {
-                // display the content here
-                Console.WriteLine("Content to be displayed for 24 hours.");
-            }
-        }*/
-
+            var singleArticle = _context.Article.Find(id);
+            return View(singleArticle);
+        }
 
         [ResponseCache(Duration = 0, Location = ResponseCacheLocation.None, NoStore = true)]
         public IActionResult Error()
@@ -108,9 +94,6 @@ namespace MagazineProject.Controllers
             return View(new ErrorViewModel { RequestId = Activity.Current?.Id ?? HttpContext.TraceIdentifier });
         }
 
-        /*public ActionResult MainViewModel()
-        {
-            
-        }*/
+        
     }
 }
