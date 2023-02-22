@@ -8,6 +8,7 @@ var builder = WebApplication.CreateBuilder(args);
 builder.Services.AddControllersWithViews();
 builder.Services.AddDbContext<MagazineDbContext>(options =>
     options.UseSqlServer(builder.Configuration.GetConnectionString("MagazineContext") ?? throw new InvalidOperationException("Context not found")));
+builder.Services.AddCoreAdmin();
 var app = builder.Build();
 
 // Configure the HTTP request pipeline.
@@ -24,7 +25,7 @@ app.UseStaticFiles();
 app.UseRouting();
 
 app.UseAuthorization();
-
+app.UseCoreAdminCdn("https://my-cdn-root.com");
 app.MapControllerRoute(
     name: "default",
     pattern: "{controller=Home}/{action=Index}/{id?}");

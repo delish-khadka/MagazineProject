@@ -1,0 +1,19 @@
+﻿@model IEnumerable<MagazineProject.Models.News>;
+@*
+    For more information on enabling MVC for empty projects, visit https://go.microsoft.com/fwlink/?LinkID=397860
+*@
+@{
+    ViewData["Title"] = "News";
+}
+<div class="row">
+@foreach(var news in Model)
+{
+    
+        <div class="col-lg-4 col-sm-12">
+            <img src="@Url.Content(@Url.Content("~/images/" + news.Image))" class="w-100 d-block" />
+            <b>@news.Title</b>
+        </div>
+    
+}
+</div>
+

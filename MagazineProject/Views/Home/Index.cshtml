@@ -2,104 +2,136 @@
 @{
     ViewData["Title"] = "Home Page";
 }
-<h1 class="text-center mt-2 mb-4 ">Silicon Soft Weekly Magazine</h1>
-<hr />
 
+<h1 class=" main-link " href="#">Silicon News</h1>
 
-<div class="row ">
-    <section class="col-8">
-        @foreach(var news in Model.allNews)
-        {
-            <div class="news-section">
-                <img src="@Url.Content("~/images/" + news.Image)" class="news-image " />
-                <div class="">
-                    <b class="flex-grow-1 fs-4">@news.Title</b>
-                    <div class="">
-                        <p>
+    <div class="row mb-5 news-row">
+        <section class="col-lg-8 col-sm-12 mb-sm-4">
+
+            @foreach (var news in Model.allNews)
+            {
+                <div class="news-section">
+                    <img src="@Url.Content("~/images/" + news.Image)" class="news-image w-75" />
+                    <div class="row mt-5">
+                        @*<b class="col-6 news-title">@news.Title</b>*@
+                        <b class="col-lg-6 col-md-12 news-title ">
                             @{
-                                var description = news.Description.Length > 100 ? news.Description.Substring(0, 100) + "..." : news.Description;
-                                // check if description is longer than 30 characters, if yes then take the first 30 characters and add "..." at the end
+                                var title = news.Title.Length > 20 ? news.Title.Substring(0, 20) + "..." : news.Title;
+                                // check if description is longer than 100 characters, if yes then take the first 100 characters and add "..." at the end
                                 // otherwise, show the full description
-                                <text>@description</text>
+                                <text>@title</text>
                             }
-                            <a href="#" class="text-secondary"> See more...</a>
-                        </p>
-                        <p class="text-secondary"> Date - @news.Date</p>
+                        </b>
+                        <div class="col-lg-6 col-md-12">
+                            <p class="fs-4 mb-5">
+                                @{
+                                    var description = news.Description.Length > 200 ? news.Description.Substring(0, 200) + "..." : news.Description;
+                                    // check if description is longer than 100 characters, if yes then take the first 100 characters and add "..." at the end
+                                    // otherwise, show the full description
+                                    <text>@description</text>
+                                }
+                                <a href="#" class="text-secondary"> See more...</a>
+                                
+                            </p>
+                        <button class="read-more-btn text-start ">READ MORE</button>
+                        </div>
                     </div>
-                </div>
-                @*<div class="">
-                    <b class="flex-grow-1 fs-4">@news.Title</b>
-                    <div class="">
-                        <p>@news.Description</p>
-                        <p class="text-secondary"> Date - @news.Date</p>
-                    </div>
-                </div>*@
-            </div>
-        }
-        <button class="btn btn-secondary">All news</button>
-    </section>
 
-    <section class="col-4 article-section ">
-        <div class="latest-news">
-            <h2 class="article-header pt-2">New Articles</h2>
-            <hr class="article-hr" />
-            @*@foreach(var item in Model)
-            {
-                <div class="new-news">
-                    <b>@Html.DisplayFor(title => item.Title)</b>
-                    <p>@Html.DisplayFor(description => item.Description)</p>
                 </div>
-            }*@
-            @foreach(var articles in Model.allArticles)
-            {
-                <a asp-action="Article" asp-route-id="@articles.Id">
-                    <div class="article-texts">
-                        <b>@articles.Title</b>
-                        <p>@articles.Description</p>
-                        <p>@articles.Genre</p>
-
-                    </div>
-                    <hr class="article-hr" />
-                </a>
-               
             }
-        </div>
+            @*<button class="btn btn-secondary">All news</button>*@
+        </section>
 
-    </section>
-</div>
+        <section class="col-lg-4  col-sm-12 article-section">
+            <div class="latest-news">
+                <h2 class="article-header pt-2">New Articles</h2>
+                <hr class="article-hr" />
+                @*@foreach(var item in Model)
+                {
+                <div class="new-news">
+                <b>@Html.DisplayFor(title => item.Title)</b>
+                <p>@Html.DisplayFor(description => item.Description)</p>
+                </div>
+                }*@
+
+                @foreach (var articles in Model.allArticles)
+                {
+                    <a asp-action="Article" asp-route-id="@articles.Id" class="text-decoration-none">
+                        <div class="article-texts">
+                            
+                        <b class="article-title">
+                            @{
+                                var title = articles.Title.Length > 30 ? articles.Title.Substring(0, 30) + "..." : articles.Title;
+                                // check if description is longer than 100 characters, if yes then take the first 100 characters and add "..." at the end
+                                // otherwise, show the full description
+                                <text>@title</text>
+                            }
+
+                        </b>
+                            <p>
+                                @{
+                                    var description = articles.Description.Length > 100 ? articles.Description.Substring(0, 100) + "..." : articles.Description;
+                                    // check if description is longer than 100 characters, if yes then take the first 100 characters and add "..." at the end
+                                    // otherwise, show the full description
+                                    <text>@description</text>
+                                }
+
+                            </p>
+                        </div>
+                        <hr class="article-hr" />
+                    </a>
+
+                }
 
 
-<section class="row">
-    <h2>Journals</h2>
+            </div>
+
+        </section>
+    </div>
+
+
+
+
+
+<section class="row min-vh-25 mt-2">
+    
     @foreach(var journal in Model.allJournals)
     {
-    <div class="articles  col-lg-4 col-sm-12 d-flex align-items-center gap-2">
-        <img src="@Url.Content("~/images/" + journal.Image)" class="h-50 w-25" />
-        <div class="article-details">
+    <div class="articles  col-lg-4 col-sm-12 d-flex gap-4 mb-4">
+        <img src="@Url.Content("~/images/" + journal.Image)" class="journal-image" />
+        <div class="article-details flex-fill">
                 @*<p class="numbers">01</p>*@
-                <h3>@journal.Title</h3>
-                <p>@journal.Description</p>
+                
+                <h3 class="journal-title">
+                    @{
+                        var title = journal.Title.Length > 30 ? journal.Title.Substring(0, 30) + "..." : journal.Title;
+                        // check if description is longer than 100 characters, if yes then take the first 100 characters and add "..." at the end
+                        // otherwise, show the full description
+                        <text>@title</text>
+                    }
+
+                </h3>
+                
+                <p>
+                    @{
+                        var description = journal.Description.Length > 80 ? journal.Description.Substring(0, 80) + "..." : journal.Description;
+                        <text>@description</text>
+                    }
+                </p>
             </div>
-        </div>
+    </div>
     }
     
 </section>
 
-<section>
-    <h2 class="mb-4">Advertisement</h2>
-    
-    @foreach(var advertisement in Model.allAdvertisement)
+
+<section class="mt-2">
+    @foreach (var advertisement in Model.allAdvertisement)
     {
-        
-            <div class="advertisement mb-3 row">
-                <img class="col-6" style="width: 50%; height: 200px; object-fit:cover;" src="@Url.Content("~/images/" + advertisement.Image)" />
-                <div class="advertisement-detail col-6">
-                    <h4>@advertisement.Title</h4>
-                    <p>@advertisement.Description</p>
-                </div>
-            </div>
-        
-        
+        <div class="advertisement mb-3 row">
+            <img class="col-12" src="@Url.Content("~/images/" + advertisement.Image)" />
+
+        </div>
     }
-    
+
 </section>

@@ -88,6 +88,13 @@ namespace MagazineProject.Controllers
             return View(singleArticle);
         }
 
+
+        public IActionResult AllNews()
+        {
+           var allNews= _context.News.ToList();
+           return View(allNews);
+        }
+
         [ResponseCache(Duration = 0, Location = ResponseCacheLocation.None, NoStore = true)]
         public IActionResult Error()
         {
