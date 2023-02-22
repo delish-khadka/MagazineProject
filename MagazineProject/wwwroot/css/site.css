@@ -9,8 +9,23 @@ html {
     font-family: 'Inter', sans-serif;
 }
 
+/*News*/
 .news-row{
     margin-right: 0px;
+}
+
+.news-title {
+    min-width: 30rem;
+    font-size: 4.5rem;
+    line-height: 5.7rem;
+    font-weight: 900;
+    /*text-align: justify;
+    text-justify: inter-word;*/
+}
+
+.news-text {
+    text-align: justify;
+    text-justify: inter-word;
 }
 
 .read-more-btn {
@@ -50,12 +65,7 @@ html {
     color:hsl(240, 100%, 5%) ;
 }
 
-.news-title {
-    min-width: 30rem;
-    font-size: 5.6rem;
-    line-height: 5.7rem;
-    font-weight: 900;
-}
+
 .news-image {
     
     min-width: 100%;

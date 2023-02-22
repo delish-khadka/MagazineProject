@@ -16,14 +16,14 @@
                         @*<b class="col-6 news-title">@news.Title</b>*@
                         <b class="col-lg-6 col-md-12 news-title ">
                             @{
-                                var title = news.Title.Length > 20 ? news.Title.Substring(0, 20) + "..." : news.Title;
+                                var title = news.Title.Length > 35 ? news.Title.Substring(0, 35) + "..." : news.Title;
                                 // check if description is longer than 100 characters, if yes then take the first 100 characters and add "..." at the end
                                 // otherwise, show the full description
                                 <text>@title</text>
                             }
                         </b>
                         <div class="col-lg-6 col-md-12">
-                            <p class="fs-4 mb-5">
+                            <p class="fs-4 mb-5 news-text">
                                 @{
                                     var description = news.Description.Length > 200 ? news.Description.Substring(0, 200) + "..." : news.Description;
                                     // check if description is longer than 100 characters, if yes then take the first 100 characters and add "..." at the end
