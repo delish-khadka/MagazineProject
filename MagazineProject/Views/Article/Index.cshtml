@@ -1,18 +1,17 @@
 ﻿@model List<MagazineProject.Models.Article>
 
 @{
-    ViewData["Title"] = "Test viewdata";
+    ViewData["Title"] = "News Page";
+    Layout = "~/Views/Shared/_AdminLayout.cshtml";
 }
 
-<h1 class="text-center">Articles</h1>
+
 <div class="d-flex justify-content-between">
 
     <p>
         <a asp-action="Create" class="btn btn-primary">Create New <i class="bi bi-plus"></i></a>
     </p>
-    <p>
-        <a asp-controller="Admin" asp-action="Index" class="btn btn-primary">Back to admin</a>
-    </p>
+    
 
 </div>
 

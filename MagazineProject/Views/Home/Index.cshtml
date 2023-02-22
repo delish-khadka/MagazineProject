@@ -3,7 +3,7 @@
     ViewData["Title"] = "Home Page";
 }
 
-<h1 class=" main-link " href="#">Silicon News</h1>
+<h1 class=" main-link text-center" href="#">Silicon Magazine</h1>
 
     <div class="row mb-5 news-row">
         <section class="col-lg-8 col-sm-12 mb-sm-4">
@@ -33,7 +33,7 @@
                                 <a href="#" class="text-secondary"> See more...</a>
                                 
                             </p>
-                        <button class="read-more-btn text-start ">READ MORE</button>
+                        <a class="text-decoration-none read-more-btn text-start" asp-controller="Clicked" asp-action="ClickedNews" asp-route-id="@news.Id">READ MORE</a>
                         </div>
                     </div>
 
@@ -56,7 +56,7 @@
 
                 @foreach (var articles in Model.allArticles)
                 {
-                    <a asp-action="Article" asp-route-id="@articles.Id" class="text-decoration-none">
+                <a asp-controller="Clicked" asp-action="ClickedArticle" asp-route-id="@articles.Id" class="text-decoration-none">
                         <div class="article-texts">
                             
                         <b class="article-title">

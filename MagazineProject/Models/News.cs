@@ -22,5 +22,33 @@ namespace MagazineProject.Models
 
         [Required(ErrorMessage = "Date is required")]
         public DateTime Date { get; set; }
+
+        public string TimeAgo
+        {
+            get
+            {
+                TimeSpan timeSincePosted = DateTime.Now - Date;
+
+                if (timeSincePosted.TotalMinutes < 1)
+                {
+                    return "just now";
+                }
+                else if (timeSincePosted.TotalHours < 1)
+                {
+                    int minutes = (int)Math.Floor(timeSincePosted.TotalMinutes);
+                    return $"{minutes} minute{(minutes > 1 ? "s" : "")} ago";
+                }
+                else if (timeSincePosted.TotalDays < 1)
+                {
+                    int hours = (int)Math.Floor(timeSincePosted.TotalHours);
+                    return $"{hours} hour{(hours > 1 ? "s" : "")} ago";
+                }
+                else
+                {
+                    int days = (int)Math.Floor(timeSincePosted.TotalDays);
+                    return $"{days} day{(days > 1 ? "s" : "")} ago";
+                }
+            }
+        }
     }
 }

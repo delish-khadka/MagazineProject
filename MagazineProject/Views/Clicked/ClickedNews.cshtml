@@ -1,0 +1,7 @@
+﻿@model MagazineProject.Models.News
+
+
+<h1 class="pt-4">@Html.DisplayFor(model => model.Title)</h1>
+<p>Posted - @Html.DisplayFor(model => model.TimeAgo)</p>
+<img class="w-100" src="@Url.Content("~/images/" + Model.Image)" />
+<p class="fs-4">@Html.DisplayFor(model => model.Description)</p>

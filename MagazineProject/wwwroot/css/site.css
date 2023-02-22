@@ -9,6 +9,14 @@ html {
     font-family: 'Inter', sans-serif;
 }
 
+.main-link {
+    font-weight: 900;
+    font-size: 2rem;
+    padding-top: 15px;
+    padding-bottom: 20px;
+    color: hsl(240, 100%, 5%) !important;
+}
+
 /*News*/
 .news-row{
     margin-right: 0px;
@@ -41,6 +49,7 @@ html {
 
     .read-more-btn:hover {
         background-color: hsl(240, 100%, 5%);
+        color: hsl(36, 100%, 99%);
     }
 
 .nav-link{
@@ -48,13 +57,7 @@ html {
     margin-left: 25px;
 }
 
-.main-link {
-    font-weight: 900;
-    font-size: 2rem;
-    padding-top: 15px;
-    padding-bottom: 20px;
-    color: hsl(240, 100%, 5%) !important;
-}
+
 
 .news-section{
     padding-right: 20px;
