@@ -29,6 +29,12 @@
         <dd class="col-sm-10">
             @Html.DisplayFor(model => model.Author)
         </dd>
+        <dt class="col-sm-2">
+            @Html.DisplayNameFor(model => model.Image)
+        </dt>
+        <dd class="col-sm-10">
+            <img class="img-fluid" src="@Url.Content("~/images/" + Model.Image)" />
+        </dd>
     </dl>
 
     <form asp-action="Delete">

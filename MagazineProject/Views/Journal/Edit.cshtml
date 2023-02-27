@@ -7,9 +7,60 @@
 
 <h1 class="text-center">Edit</h1>
 
-<h4>Journal</h4>
-<hr />
-<div class="article-card mt-1">
+<div class="col-md-10 mx-auto py-4">
+    <div class="card">
+        <div class="card-header bg-primary text-uppercase text-white">
+            <h4>Add New Journal</h4>
+        </div>
+        <div class="card-body">
+            <form enctype="multipart/form-data" asp-action="Edit">
+                <div class="row">
+                    <div class="col-md-6">
+                        <div class="form-group">
+                            <label asp-for="Title" class="control-label"></label>
+                            <input asp-for="Title" class="form-control" />
+                            <span asp-validation-for="Title" class="text-danger"></span>
+                        </div>
+                    </div>
+                    <div class="col-md-6">
+                        <div class="form-group">
+                            <label asp-for="Description" class="control-label"></label>
+                            <input asp-for="Description" class="form-control" />
+                            <span asp-validation-for="Description" class="text-danger"></span>
+                        </div>
+                    </div>
+                </div>
+
+                <div class="row">
+                    <div class="col-md-6">
+                        <div class="form-group">
+                            <label asp-for="Author" class="control-label"></label>
+                            <input asp-for="Author" class="form-control" />
+                            <span asp-validation-for="Author" class="text-danger"></span>
+                        </div>
+                    </div>
+                    <div class="col-md-6">
+                        <div class="form-group">
+                            <label asp-for="JournalImage" class="control-label"></label>
+                            <div class="custom-file">
+                                <input asp-for="JournalImage" class="custom-file-input" id="customFile">
+                                <label class="custom-file-label" for="customFile">Choose file</label>
+                            </div>
+                            <span asp-validation-for="JournalImage" class="text-danger"></span>
+                        </div>
+                    </div>
+                </div>
+                <div class="form-group">
+                    <input type="submit" value="submit" class="btn btn-sm btn-primary rounded-0 text-uppercase" />
+                    <a asp-action="Index" class="btn btn-sm btn-primary rounded-0 text-uppercase"><i class="fas fa-fast-backward"></i> Back to List</a>
+                </div>
+            </form>
+        </div>
+    </div>
+</div>
+
+
+@*<div class="article-card mt-1">
     <div class="container-card p-2">
         <form enctype="multipart/form-data" asp-action="Edit">
             <div asp-validation-summary="ModelOnly" class="text-danger"></div>
@@ -33,16 +84,16 @@
                 <label class="custom-file-label" for="customFile">Choose file</label>
                 @*<label asp-for="JournalImage" class="control-label w-25"></label>
                 <input asp-for="JournalImage" class="form-control w-75" />
-                <span asp-validation-for="JournalImage" class="text-danger"></span>*@
+                <span asp-validation-for="JournalImage" class="text-danger"></span>
             </div>
             <input type="submit" value="Save" class="btn btn-primary mt-2" />
         </form>
     </div>
-</div>
-<div>
+</div>*@
+@*<div>
     <a asp-action="Index" class="btn btn-outline-danger mt-2">Back to List</a>
 </div>
-
+*@
 
 @section Scripts {
     @{

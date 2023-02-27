@@ -5,24 +5,40 @@
     Layout = "~/Views/Shared/_AdminLayout.cshtml";
 }
 
-<table class="table table-bordered">
-    <tr>
-        <th>Image</th>
-        <th>Title</th>
-        <th>Description</th>
-        <th>Date</th>
-    </tr>
-    <tr>
-        <td hidden>@Html.DisplayFor(model=>model.Id)</td>
-        <td>@Html.DisplayFor(model=>model.Image)</td>
-        <td>@Html.DisplayFor(model=>model.Title)</td>
-        <td>@Html.DisplayFor(model=>model.Description)</td>
-        <td>@Html.DisplayFor(model=>model.Date)</td>
-    </tr>
-</table>
+<h3 class="text-center">Are you sure you want to delete?</h3>
 
-<form asp-action="Delete">
-    <input type="hidden" asp-for="Id" />
-    <input type="submit" value="Delete" class="btn btn-danger" />
-    <a asp-action="Index">Back to home</a>
-</form>
+<div>
+    <hr />
+    <dl class="row">
+        <dt class="col-sm-2">
+            @Html.DisplayNameFor(model => model.Title)
+        </dt>
+        <dd class="col-sm-10">
+            @Html.DisplayFor(model => model.Title)
+        </dd>
+        <dt class="col-sm-2">
+            @Html.DisplayNameFor(model => model.Description)
+        </dt>
+        <dd class="col-sm-10">
+            @Html.DisplayFor(model => model.Description)
+        </dd>
+        <dt class="col-sm-2">
+            @Html.DisplayNameFor(model => model.Date)
+        </dt>
+        <dd class="col-sm-10">
+            @Html.DisplayFor(model => model.Date)
+        </dd>
+        <dt class="col-sm-2">
+            @Html.DisplayNameFor(model => model.Image)
+        </dt>
+        <dd class="col-sm-10">
+            <img class="img-fluid" src="@Url.Content("~/images/" + Model.Image)" />
+        </dd>
+    </dl>
+
+    <form asp-action="Delete">
+        <input type="hidden" asp-for="Id" />
+        <input type="submit" value="Delete" class="btn btn-danger" />
+        <a asp-action="Index" class="btn btn-info">Back to List</a>
+    </form>
+</div>

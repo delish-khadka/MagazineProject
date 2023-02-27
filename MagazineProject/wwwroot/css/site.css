@@ -31,9 +31,10 @@ html {
     text-justify: inter-word;*/
 }
 
-.news-text {
-    text-align: justify;
-    text-justify: inter-word;
+.news-text,
+.try {
+    text-align: justify !important;
+    text-justify: inter-word !important;
 }
 
 .read-more-btn {

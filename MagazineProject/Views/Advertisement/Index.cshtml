@@ -5,6 +5,8 @@
     Layout = "~/Views/Shared/_AdminLayout.cshtml";
 }
 
+<h3>Advertisement</h3>
+<hr />
 <div class="d-flex justify-content-between">
 
     <p>
@@ -20,18 +22,31 @@
         <div class="article-card mt-1">
 
             <div class="container-card p-2">
-                <div class="article-header d-flex justify-content-between">
-                    <div class="title fw-bold fs-2">@Html.DisplayFor(modelItem => item.Title)</div>
+                <div class="article-header d-flex justify-content-between mb-4">
+                    <div class="title fw-bold fs-2" style="font-weight: bold; font-size: 20px;">@Html.DisplayFor(modelItem => item.Title)</div>
                     <div class="buttons">
-                        <a class="btn btn-warning" asp-action="Edit" asp-route-id="@item.ID">Edit</a>
+                        <a class="btn btn-outline-primary" asp-action="Edit" asp-route-id="@item.ID">Edit</a>
                         <a class="btn btn-danger" asp-action="Delete" asp-route-id="@item.ID">Delete</a>
-                        <a class="btn btn-secondary" asp-action="Details" asp-route-id="@item.ID">Details</a>
+                        
                     </div>
                 </div>
 
-                <div class="description">
-                    <p class="description">@Html.DisplayFor(modelItem => item.Description)</p>
-                    <p class="description">@Html.DisplayFor(modelItem => item.AdvertisementPostedDate)</p>
+                <div class="row">
+                    <div class="col-4 genre">
+                        <p class="text-genre">
+                            <img src="~/images/@item.Image" class="w-100 h-100"
+                         asp-append-version="true" />
+                        </p>
+                    </div>
+                    <div class="col-8 description">
+                        <p class="description" style="text-align: justify;">@Html.DisplayFor(modelItem => item.Description)</p>
+                        <p class="description">@Html.DisplayFor(modelItem => item.AdvertisementPostedDate)</p>
+                    </div>
+
+                </div>
+               @* <div class="description">
+                    <p class="description" style="text-align: justify;">@Html.DisplayFor(modelItem => item.Description)</p>
+                    <p class="description" >@Html.DisplayFor(modelItem => item.AdvertisementPostedDate)</p>
                 </div>
                 <div class="genre">
                     <p class="text-genre">
@@ -39,7 +54,7 @@
                      height="100" width="100"
                      asp-append-version="true" />
                     </p>
-                </div>
+                </div>*@
             </div>
 
         </div>
